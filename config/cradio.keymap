@@ -27,8 +27,8 @@
         compatible = "zmk,conditional-layers";
 
         utilities {
-            if-layers = <2 1>;
-            then-layer = <5>;
+            if-layers = <1 2>;
+            then-layer = <6>;
         };
     };
 
@@ -37,10 +37,37 @@
 
         base {
             bindings = <
-&ht GRAVE Q  &kp W       &kp E               &kp R        &kp T              &kp Y        &kp U        &kp I                &kp O       &kp P
-&ht LWIN A   &ht LALT S  &ht LC(LEFT_ALT) D  &ht LCTRL F  &kp G              &kp H        &ht RCTRL J  &ht RC(RIGHT_ALT) K  &ht RALT L  &ht K_APPLICATION SEMICOLON
-&kp Z        &kp X       &kp C               &kp V        &kp B              &kp N        &kp M        &kp COMMA            &kp DOT     &kp FSLH
-                                             &kp LSHIFT   &lt 1 BACKSPACE    &lt 2 SPACE  &lt 3 ENTER
+&ht GRAVE Q  &ht EXCLAMATION W  &ht AT_SIGN E       &ht HASH R   &ht DOLLAR T       &ht PERCENT Y  &ht CARET U  &ht AMPERSAND I      &ht ASTERISK O  &ht BACKSLASH P
+&ht LWIN A   &ht LALT S         &ht LC(LEFT_ALT) D  &ht LCTRL F  &kp G              &kp H          &ht RCTRL J  &ht RC(RIGHT_ALT) K  &ht RALT L      &ht K_APPLICATION SEMICOLON
+&kp Z        &kp X              &kp C               &kp V        &kp B              &kp N          &kp M        &kp COMMA            &kp DOT         &kp FSLH
+                                                    &kp LSHIFT   &lt 1 BACKSPACE    &lt 2 SPACE    &lt 3 ENTER
+            >;
+        };
+
+        NAV-SYM {
+            bindings = <
+&kp ESCAPE  &kp LS(TAB)      &kp TAB      &sk LEFT_ALT       &kp LEFT_CONTROL    &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp LEFT_BRACE  &kp RIGHT_BRACE    &kp BACKSLASH
+&kp F4      &kp LS(LC(TAB))  &kp LC(TAB)  &kp LC(BACKSPACE)  &kp DELETE          &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp APOSTROPHE  &kp DOUBLE_QUOTES  &kp EXCLAMATION
+&kp LC(Z)   &kp LC(X)        &kp LC(C)    &kp LC(V)          &kp LC(Y)           &kp RA(MINUS)         &kp LC(LS(M))          &kp HASH        &kp LC(LS(C))      &kp LC(LS(P))
+                                          &trans             &trans              &trans                &trans
+            >;
+        };
+
+        Fn-NUM {
+            bindings = <
+&kp F1  &kp F2  &kp F3  &kp F4   &kp F5     &kp PLUS   &kp N7  &kp N8  &kp N9  &kp MINUS
+&kp F6  &kp F7  &kp F8  &kp F9   &kp F10    &kp EQUAL  &kp N4  &kp N5  &kp N6  &kp ASTERISK
+&trans  &trans  &trans  &kp F11  &kp F12    &kp DOT    &kp N1  &kp N2  &kp N3  &kp SLASH
+                        &trans   &trans     &trans     &kp N0
+            >;
+        };
+
+        SYM-NAV {
+            bindings = <
+&kp GRAVE    &kp EXCLAMATION  &kp AT_SIGN    &kp HASH        &kp DOLLAR       &trans  &kp HOME      &kp UP      &kp END       &kp PG_UP
+&kp PERCENT  &kp CARET        &kp AMPERSAND  &kp UNDERSCORE  &kp PIPE         &trans  &kp LEFT      &kp DOWN    &kp RIGHT     &kp PG_DN
+&trans       &trans           &trans         &trans          &kp BACKSLASH    &trans  &kp LC(LEFT)  &kp LC(UP)  &kp LC(DOWN)  &kp LC(RIGHT)
+                                             &trans          &trans           &trans  &trans
             >;
         };
 
@@ -53,30 +80,12 @@
             >;
         };
 
-        NUM {
-            bindings = <
-&kp F1  &kp F2  &kp F3  &kp F4   &kp F5     &kp PLUS   &kp N7  &kp N8  &kp N9  &kp MINUS
-&kp F6  &kp F7  &kp F8  &kp F9   &kp F10    &kp EQUAL  &kp N4  &kp N5  &kp N6  &kp ASTERISK
-&trans  &trans  &trans  &kp F11  &kp F12    &kp DOT    &kp N1  &kp N2  &kp N3  &kp SLASH
-                        &trans   &trans     &trans     &kp N0
-            >;
-        };
-
         SYM {
             bindings = <
 &kp TILDE    &kp EXCLAMATION  &kp AT_SIGN    &kp HASH        &kp DOLLAR       &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp DOUBLE_QUOTES  &kp EQUAL         &kp LA(MINUS)
 &kp PERCENT  &kp CARET        &kp AMPERSAND  &kp UNDERSCORE  &kp PIPE         &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp SINGLE_QUOTE   &kp GRAVE         &kp LC(LS(M))
 &trans       &trans           &trans         &trans          &kp BACKSLASH    &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp LESS_THAN      &kp GREATER_THAN  &kp LC(LS(C))
                                              &trans          &trans           &trans                &trans
-            >;
-        };
-
-        SYM2 {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans    &trans  &trans
             >;
         };
 
