@@ -64,9 +64,9 @@
 
         sym-nav {
             bindings = <
-&kp GRAVE    &kp EXCLAMATION  &kp AT_SIGN    &kp HASH        &kp DOLLAR       &kp LC(HOME)  &kp HOME      &kp UP      &kp END       &kp PG_UP
-&kp PERCENT  &kp CARET        &kp AMPERSAND  &kp UNDERSCORE  &kp PIPE         &kp LC(END)   &kp LEFT      &kp DOWN    &kp RIGHT     &kp PG_DN
-&trans       &trans           &trans         &trans          &kp BACKSLASH    &trans        &kp LC(LEFT)  &kp LC(UP)  &kp LC(DOWN)  &kp LC(RIGHT)
+&kp GRAVE    &kp EXCLAMATION  &kp AT_SIGN    &kp HASH        &kp DOLLAR       &kp LC(HOME)  &kp HOME      &kp UP      &kp END        &kp PG_UP
+&kp PERCENT  &kp CARET        &kp AMPERSAND  &kp UNDERSCORE  &kp PIPE         &kp LC(END)   &kp LEFT      &kp DOWN    &kp RIGHT      &kp PG_DN
+&trans       &trans           &trans         &trans          &kp BACKSLASH    &trans        &kp LC(LEFT)  &kp LC(UP)  &kp LC(RIGHT)  &kp LC(DOWN_ARROW)
                                              &trans          &trans           &trans        &trans
             >;
         };
