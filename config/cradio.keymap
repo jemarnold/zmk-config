@@ -37,10 +37,10 @@
 
         base {
             bindings = <
-&ht GRAVE Q  &ht EXCLAMATION W  &ht AT_SIGN E       &ht HASH R   &ht DOLLAR T       &ht PERCENT Y  &ht CARET U  &ht AMPERSAND I      &ht ASTERISK O  &ht BACKSLASH P
-&ht LWIN A   &ht LALT S         &ht LC(LEFT_ALT) D  &ht LCTRL F  &kp G              &kp H          &ht RCTRL J  &ht RC(RIGHT_ALT) K  &ht RALT L      &ht K_APPLICATION SEMICOLON
-&kp Z        &kp X              &kp C               &kp V        &kp B              &kp N          &kp M        &kp COMMA            &kp DOT         &kp FSLH
-                                                    &kp LSHIFT   &lt 1 BACKSPACE    &lt 2 SPACE    &lt 3 ENTER
+&kp Q       &kp W       &kp E               &kp R        &kp T              &kp Y        &kp U        &kp I                &kp O       &kp P
+&ht LWIN A  &ht LALT S  &ht LC(LEFT_ALT) D  &ht LCTRL F  &kp G              &kp H        &ht RCTRL J  &ht RC(RIGHT_ALT) K  &ht RALT L  &ht K_APPLICATION SEMICOLON
+&kp Z       &kp X       &kp C               &kp V        &kp B              &kp N        &kp M        &kp COMMA            &kp DOT     &kp FSLH
+                                            &kp LSHIFT   &lt 1 BACKSPACE    &lt 2 SPACE  &lt 3 ENTER
             >;
         };
 
