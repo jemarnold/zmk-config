@@ -80,7 +80,7 @@
 
         nav-sym {
             bindings = <
-&kp LC(W)       &kp LC(TAB)      &swap        &sk TAB            &kp LC(T)           &kp RA(MINUS)         &kp LC(LS(M))          &kp HASH        &kp LC(LS(C))     &kp LC(LS(P))
+&kp LC(W)       &kp LS(TAB)      &swap        &sk TAB            &kp LC(T)           &kp RA(MINUS)         &kp LC(LS(M))          &kp HASH        &kp LC(LS(C))     &kp LC(LS(P))
 &dt_esc_alt_f4  &kp LS(LC(TAB))  &kp LC(TAB)  &kp LC(BACKSPACE)  &kp DELETE          &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp LEFT_BRACE  &kp RIGHT_BRACE   &kp BACKSLASH
 &kp LC(Z)       &kp LC(X)        &kp LC(C)    &kp LC(V)          &kp LC(Y)           &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp LESS_THAN   &kp GREATER_THAN  &kp SLASH
                                               &trans             &trans              &trans                &trans
