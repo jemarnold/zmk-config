@@ -67,9 +67,9 @@
 
         nav-sym {
             bindings = <
-&kp ESCAPE  &kp LS(TAB)      &kp TAB      &sk LEFT_ALT       &kp LEFT_CONTROL    &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp LEFT_BRACE  &kp RIGHT_BRACE   &kp BACKSLASH
-&kp F4      &kp LS(LC(TAB))  &kp LC(TAB)  &kp LC(BACKSPACE)  &kp DELETE          &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp LESS_THAN   &kp GREATER_THAN  &kp SLASH
-&kp LC(Z)   &kp LC(X)        &kp LC(C)    &kp LC(V)          &kp LC(Y)           &kp RA(MINUS)         &kp LC(LS(M))          &kp HASH        &kp LC(LS(C))     &kp LC(LS(P))
+&kp ESCAPE  &kp LS(TAB)      &kp TAB      &sk LEFT_ALT       &kp LEFT_CONTROL    &kp RA(MINUS)         &kp LC(LS(M))          &kp HASH        &kp LC(LS(C))     &kp LC(LS(P))
+&kp F4      &kp LS(LC(TAB))  &kp LC(TAB)  &kp LC(BACKSPACE)  &kp DELETE          &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp LEFT_BRACE  &kp RIGHT_BRACE   &kp BACKSLASH
+&kp LC(Z)   &kp LC(X)        &kp LC(C)    &kp LC(V)          &kp LC(Y)           &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp LESS_THAN   &kp GREATER_THAN  &kp SLASH
                                           &trans             &trans              &trans                &trans
             >;
         };
