@@ -21,6 +21,19 @@
             require-prior-idle-ms = <100>;
             bindings = <&kp>, <&kp>;
         };
+        swap: swapper {
+            compatible = "zmk,behavior-tri-state";
+            label = "SWAPPER";
+            #binding-cells = <0>;
+            bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>;
+            ignored-key-positions = <1>;
+        };
+        dt: double_tap {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <1>;
+            tapping-term-ms = <200>;
+            bindings = <&none>, <&kp>;
+        };
     };
 
     comma_semicol: comma_semicol {
@@ -67,10 +80,10 @@
 
         nav-sym {
             bindings = <
-&kp ESCAPE  &kp LS(TAB)      &kp TAB      &sk LEFT_ALT       &kp LEFT_CONTROL    &kp RA(MINUS)         &kp LC(LS(M))          &kp HASH        &kp LC(LS(C))     &kp LC(LS(P))
-&kp F4      &kp LS(LC(TAB))  &kp LC(TAB)  &kp LC(BACKSPACE)  &kp DELETE          &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp LEFT_BRACE  &kp RIGHT_BRACE   &kp BACKSLASH
-&kp LC(Z)   &kp LC(X)        &kp LC(C)    &kp LC(V)          &kp LC(Y)           &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp LESS_THAN   &kp GREATER_THAN  &kp SLASH
-                                          &trans             &trans              &trans                &trans
+&kp ESCAPE    &kp LC(W)        &swap        &sk TAB            &kp LC(T)           &kp RA(MINUS)         &kp LC(LS(M))          &kp HASH        &kp LC(LS(C))     &kp LC(LS(P))
+&dt LALT(F4)  &kp LS(LC(TAB))  &kp LC(TAB)  &kp LC(BACKSPACE)  &kp DELETE          &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp LEFT_BRACE  &kp RIGHT_BRACE   &kp BACKSLASH
+&kp LC(Z)     &kp LC(X)        &kp LC(C)    &kp LC(V)          &kp LC(Y)           &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp LESS_THAN   &kp GREATER_THAN  &kp SLASH
+                                            &trans             &trans              &trans                &trans
             >;
         };
 
