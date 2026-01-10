@@ -28,12 +28,12 @@
             bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>;
             ignored-key-positions = <1>;
         };
-        dt: double_tap {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <1>;
-            tapping-term-ms = <200>;
-            bindings = <&none>, <&kp>;
-        };
+        dt_alt_f4: double_tap_alt_f4 {
+        compatible = "zmk,behavior-tap-dance";
+        #binding-cells = <0>;
+        tapping-term-ms = <200>;
+        bindings = <&none>, <&kp LALT(F4)>;
+    };
     };
 
     comma_semicol: comma_semicol {
@@ -80,10 +80,10 @@
 
         nav-sym {
             bindings = <
-&kp ESCAPE    &kp LC(W)        &swap        &sk TAB            &kp LC(T)           &kp RA(MINUS)         &kp LC(LS(M))          &kp HASH        &kp LC(LS(C))     &kp LC(LS(P))
-&dt LALT(F4)  &kp LS(LC(TAB))  &kp LC(TAB)  &kp LC(BACKSPACE)  &kp DELETE          &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp LEFT_BRACE  &kp RIGHT_BRACE   &kp BACKSLASH
-&kp LC(Z)     &kp LC(X)        &kp LC(C)    &kp LC(V)          &kp LC(Y)           &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp LESS_THAN   &kp GREATER_THAN  &kp SLASH
-                                            &trans             &trans              &trans                &trans
+&kp ESCAPE  &kp LC(W)        &swap        &sk TAB            &kp LC(T)           &kp RA(MINUS)         &kp LC(LS(M))          &kp HASH        &kp LC(LS(C))     &kp LC(LS(P))
+&dt_alt_f4  &kp LS(LC(TAB))  &kp LC(TAB)  &kp LC(BACKSPACE)  &kp DELETE          &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp LEFT_BRACE  &kp RIGHT_BRACE   &kp BACKSLASH
+&kp LC(Z)   &kp LC(X)        &kp LC(C)    &kp LC(V)          &kp LC(Y)           &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp LESS_THAN   &kp GREATER_THAN  &kp SLASH
+                                          &trans             &trans              &trans                &trans
             >;
         };
 
