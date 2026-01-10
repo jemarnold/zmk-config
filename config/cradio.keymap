@@ -29,11 +29,11 @@
             ignored-key-positions = <1>;
         };
         dt_alt_f4: double_tap_alt_f4 {
-        compatible = "zmk,behavior-tap-dance";
-        #binding-cells = <0>;
-        tapping-term-ms = <200>;
-        bindings = <&none>, <&kp LALT(F4)>;
-    };
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&none>, <&kp LA(F4)>;
+        };
     };
 
     comma_semicol: comma_semicol {
