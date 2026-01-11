@@ -34,6 +34,18 @@
             tapping-term-ms = <200>;
             bindings = <&kp ESCAPE>, <&kp LA(F4)>;
         };
+
+        spaced_equal:  spaced_equal {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp SPACE &kp EQUAL &kp SPACE>;
+        };
+        dt_equal_assign: double_tap_equal_assign {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&spaced_equal>, <&kp RA(MINUS)>;
+        };
     };
 
     comma_semicol: comma_semicol {
@@ -80,7 +92,7 @@
 
         nav-sym {
             bindings = <
-&kp LC(W)       &kp LS(TAB)      &swap        &sk TAB            &kp LC(T)           &kp RA(MINUS)         &kp LC(LS(M))          &kp HASH        &kp LC(LS(C))     &kp LC(LS(P))
+&kp LC(W)       &kp LS(TAB)      &swap        &sk TAB            &kp LC(T)           &dt_equal_assign      &kp LC(LS(M))          &kp HASH        &kp LC(LS(C))     &kp LC(LS(P))
 &dt_esc_alt_f4  &kp LS(LC(TAB))  &kp LC(TAB)  &kp LC(BACKSPACE)  &kp DELETE          &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp LEFT_BRACE  &kp RIGHT_BRACE   &kp BACKSLASH
 &kp LC(Z)       &kp LC(X)        &kp LC(C)    &kp LC(V)          &kp LC(Y)           &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp LESS_THAN   &kp GREATER_THAN  &kp SLASH
                                               &trans             &trans              &trans                &trans
