@@ -16,7 +16,7 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
-            tapping-term-ms = <270>;
+            tapping-term-ms = <250>;
             quick-tap-ms = <150>;
             require-prior-idle-ms = <100>;
             bindings = <&kp>, <&kp>;
@@ -35,16 +35,45 @@
             bindings = <&kp ESCAPE>, <&kp LA(F4)>;
         };
 
+// equal sign operators
         spaced_equal: spaced_equal {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp SPACE &kp EQUAL &kp SPACE>;
         };
-        dt_equal_assign: double_tap_equal_assign {
+        spaced_equality: spaced_equality {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp SPACE &kp EQUAL &kp EQUAL &kp SPACE>;
+        };
+        spaced_unequal: spaced_unequal {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp SPACE &kp EXCL &kp EQUAL &kp SPACE>;
+        };
+        dt_equal_ops: double_tap_equal_operators {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&spaced_equal>, <&kp RA(MINUS)>;
+            bindings = <&spaced_equal>, <&spaced_equality>, <&spaced_unequal>;
+        };
+
+        gte: greater_than_equal_to {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp GREATER_THAN &kp EQUAL>;
+        };
+        lte: less_than_equal_to {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LESS_THAN &kp EQUAL>;
+        };
+
+        dt_assign_pipe: double_tap_assign_pipe {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp RA(MINUS)>, <&kp LC(LS(M))>;
         };
 
         spaced_minus: spaced_minus {
@@ -60,24 +89,71 @@
         };
     };
 
-    comma_semicol: comma_semicol {
+// modified shift keys
+    comma_semicol: comma_semicolon {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
         bindings = <&kp COMMA>, <&kp SEMICOLON>;
         mods = <(MOD_LSFT|MOD_RSFT)>;
     };
-
     dot_colon: dot_colon {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
         bindings = <&kp DOT>, <&kp COLON>;
         mods = <(MOD_LSFT|MOD_RSFT)>;
     };
-
-    excl_qmark: excl_qmark {
+    excl_qmark: exclamation_question_mark {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
         bindings = <&kp EXCL>, <&kp QMARK>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    lt_lte: less_than_less_than_equal_to {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&kp LESS_THAN>, <&lte>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    gt_gte: greater_than_greater_than_equal_to {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&kp GREATER_THAN>, <&gte>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    paren_open_closed: parenthesis_open_closed {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&kp LEFT_PARENTHESIS>, <&kp RIGHT_PARENTHESIS>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    bracket_open_closed: bracket_open_closed {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&kp LEFT_BRACKET>, <&kp RIGHT_BRACKET>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    brace_open_closed: brace_open_closed {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&kp LEFT_BRACE>, <&kp RIGHT_BRACE>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    hash_dollar: hash_dollar {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&kp HASH>, <&kp DOLLAR>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    percent_amp: percent_ampersand {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&kp PERCENT>, <&kp AMPERSAND>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    at_caret: at_caret {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&kp AT_SIGN>, <&kp CARET>;
         mods = <(MOD_LSFT|MOD_RSFT)>;
     };
 
@@ -104,9 +180,9 @@
 
         nav-sym {
             bindings = <
-&kp LC(W)       &kp LS(TAB)      &swap        &sk TAB            &kp LC(T)           &dt_equal_assign      &kp LC(LS(M))          &kp HASH        &kp LC(LS(C))     &kp LC(LS(P))
-&dt_esc_alt_f4  &kp LS(LC(TAB))  &kp LC(TAB)  &kp LC(BACKSPACE)  &kp DELETE          &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp LEFT_BRACE  &kp RIGHT_BRACE   &kp BACKSLASH
-&kp LC(Z)       &kp LC(X)        &kp LC(C)    &kp LC(V)          &kp LC(Y)           &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp LESS_THAN   &kp GREATER_THAN  &kp SLASH
+&kp LC(W)       &kp LS(TAB)      &swap        &sk TAB            &kp LC(T)           &dt_assign_pipe       &dt_equal_ops       &hash_dollar  &kp LC(LS(C))  &kp LC(LS(P))
+&dt_esc_alt_f4  &kp LS(LC(TAB))  &kp LC(TAB)  &kp LC(BACKSPACE)  &kp DELETE          &paren_open_closed    &percent_amp        &at_caret     &kp GRAVE      &kp BACKSLASH
+&kp LC(Z)       &kp LC(X)        &kp LC(C)    &kp LC(V)          &kp LC(Y)           &bracket_open_closed  &brace_open_closed  &lt_lte       &gt_gte        &kp SLASH
                                               &trans             &trans              &trans                &trans
             >;
         };
