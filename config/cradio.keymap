@@ -35,7 +35,7 @@
             bindings = <&kp ESCAPE>, <&kp LA(F4)>;
         };
 
-        spaced_equal:  spaced_equal {
+        spaced_equal: spaced_equal {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp SPACE &kp EQUAL &kp SPACE>;
@@ -45,6 +45,18 @@
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&spaced_equal>, <&kp RA(MINUS)>;
+        };
+
+        spaced_minus: spaced_minus {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp SPACE &kp MINUS &kp SPACE>;
+        };
+        dt_minus_spaced_minus: dt_minus_spaced_minus {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp MINUS>, <&spaced_minus>;
         };
     };
 
@@ -101,7 +113,7 @@
 
         fn-num {
             bindings = <
-&kp F1  &kp F2  &kp F3  &kp F4   &kp F5     &kp PLUS   &kp N7  &kp N8  &kp N9  &kp MINUS
+&kp F1  &kp F2  &kp F3  &kp F4   &kp F5     &kp PLUS   &kp N7  &kp N8  &kp N9  &dt_minus_spaced_minus
 &kp F6  &kp F7  &kp F8  &kp F9   &kp F10    &kp EQUAL  &kp N4  &kp N5  &kp N6  &kp ASTERISK
 &trans  &trans  &trans  &kp F11  &kp F12    &kp DOT    &kp N1  &kp N2  &kp N3  &kp SLASH
                         &trans   &trans     &trans     &kp N0
