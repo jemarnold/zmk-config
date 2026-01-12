@@ -180,7 +180,7 @@
 
         nav-sym {
             bindings = <
-&kp LC(W)       &kp LS(TAB)      &swap        &sk TAB            &kp LC(T)           &dt_assign_pipe       &dt_equal_ops       &hash_dollar  &kp LC(LS(C))  &kp LC(LS(P))
+&kp LC(W)       &kp LS(TAB)      &swap        &kp TAB            &kp LC(T)           &dt_assign_pipe       &dt_equal_ops       &hash_dollar  &kp LC(LS(C))  &kp LC(LS(P))
 &dt_esc_alt_f4  &kp LS(LC(TAB))  &kp LC(TAB)  &kp LC(BACKSPACE)  &kp DELETE          &paren_open_closed    &percent_amp        &at_caret     &kp GRAVE      &kp BACKSLASH
 &kp LC(Z)       &kp LC(X)        &kp LC(C)    &kp LC(V)          &kp LC(Y)           &bracket_open_closed  &brace_open_closed  &lt_lte       &gt_gte        &kp SLASH
                                               &trans             &trans              &trans                &trans
