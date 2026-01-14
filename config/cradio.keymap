@@ -6,10 +6,6 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
 
-// Home row mods macro
-// #define HRML(k1,k2,k3,k4) &ht LSHFT k1  &ht LALT k2  &ht LCTRL k3  &ht LGUI k4
-// #define HRMR(k1,k2,k3,k4) &ht RGUI k1  &ht RCTRL k2  &ht RALT k3  &ht RSHFT k4
-
 / {
     behaviors {
         ht: hold_tap {
@@ -26,7 +22,7 @@
             label = "SWAPPER";
             #binding-cells = <0>;
             bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>;
-            ignored-key-positions = <1>;
+            ignored-key-positions = <3>;
         };
         dt_esc_alt_f4: double_tap_esc_alt_f4 {
             compatible = "zmk,behavior-tap-dance";
@@ -198,8 +194,8 @@
 
         nav-sym {
             bindings = <
-&kp LC(W)       &kp LS(TAB)      &swap        &kp TAB            &kp LC(T)           &dt_assign_pipe       &dt_equal_ops       &hash_dollar  &kp LC(LS(C))  &underscore_cmd
-&dt_esc_alt_f4  &kp LS(LC(TAB))  &kp LC(TAB)  &kp LC(BACKSPACE)  &kp DELETE          &paren_open_closed    &amp_percent        &at_caret     &kp GRAVE      &backslash_astrk
+&dt_esc_alt_f4  &kp LC(W)        &swap        &LS(TAB)           &kp LC(T)           &dt_assign_pipe       &dt_equal_ops       &hash_dollar  &kp LC(LS(C))  &underscore_cmd
+&kp TAB         &kp LS(LC(TAB))  &kp LC(TAB)  &kp LC(BACKSPACE)  &kp DELETE          &paren_open_closed    &amp_percent        &at_caret     &kp GRAVE      &backslash_astrk
 &kp LC(Z)       &kp LC(X)        &kp LC(C)    &kp LC(V)          &kp LC(Y)           &bracket_open_closed  &brace_open_closed  &lt_lte       &gt_gte        &slash_pipe
                                               &trans             &trans              &trans                &trans
             >;
