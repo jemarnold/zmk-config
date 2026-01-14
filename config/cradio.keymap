@@ -194,7 +194,7 @@
 
         nav-sym {
             bindings = <
-&dt_esc_alt_f4  &kp LC(W)        &swap        &LS(TAB)           &kp LC(T)           &dt_assign_pipe       &dt_equal_ops       &hash_dollar  &kp LC(LS(C))  &underscore_cmd
+&dt_esc_alt_f4  &kp LC(W)        &swap        &kp LS(TAB)        &kp LC(T)           &dt_assign_pipe       &dt_equal_ops       &hash_dollar  &kp LC(LS(C))  &underscore_cmd
 &kp TAB         &kp LS(LC(TAB))  &kp LC(TAB)  &kp LC(BACKSPACE)  &kp DELETE          &paren_open_closed    &amp_percent        &at_caret     &kp GRAVE      &backslash_astrk
 &kp LC(Z)       &kp LC(X)        &kp LC(C)    &kp LC(V)          &kp LC(Y)           &bracket_open_closed  &brace_open_closed  &lt_lte       &gt_gte        &slash_pipe
                                               &trans             &trans              &trans                &trans
