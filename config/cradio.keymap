@@ -19,12 +19,9 @@
         lt: layer_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "balanced";
+            flavor = "hold-preferred";
             tapping-term-ms = <280>;
-            quick-tap-ms = <175>;
-            require-prior-idle-ms = <150>;
             bindings = <&mo>, <&kp>;
-            hold-trigger-on-release;
         };
         htl: left_hand_hold_tap {
             compatible = "zmk,behavior-hold-tap";
