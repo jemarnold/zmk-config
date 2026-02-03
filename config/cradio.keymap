@@ -45,6 +45,8 @@
             hold-trigger-key-positions = <KEYS_L THUMBS>;
             hold-trigger-on-release;
         };
+
+// Win navigation hotkeys
         alt_tab: swapper_alt_tab {
             compatible = "zmk,behavior-tri-state";
             #binding-cells = <0>;
@@ -82,8 +84,22 @@
             tapping-term-ms = <200>;
             bindings = <&kp ESCAPE>, <&kp LA(F4)>;
         };
+        shutdown_win: shutdown_windows {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <100>;
+            tap-ms = <100>;
+            bindings = <&kp LG(X)>, <&kp U>, <&kp U>;
+        };
+        restart_win: restart_windows {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <100>;
+            tap-ms = <100>;
+            bindings = <&kp LG(X)>, <&kp U>, <&kp R>;
+        };
 
-// equal sign operators
+// spaced symbols & tap dances
         spaced_equal: spaced_equal {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -105,7 +121,6 @@
             tapping-term-ms = <200>;
             bindings = <&spaced_equal>, <&spaced_equality>, <&spaced_unequal>;
         };
-
         gte: greater_than_equal_to {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -116,14 +131,12 @@
             #binding-cells = <0>;
             bindings = <&kp LESS_THAN &kp EQUAL>;
         };
-
         dt_assign_pipe: double_tap_assign_pipe {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&kp RA(MINUS)>, <&kp LC(LS(M))>;
         };
-
         spaced_minus: spaced_minus {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -135,7 +148,6 @@
             tapping-term-ms = <200>;
             bindings = <&kp MINUS>, <&spaced_minus>;
         };
-
         spaced_plus: spaced_plus {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -147,7 +159,6 @@
             tapping-term-ms = <200>;
             bindings = <&kp PLUS>, <&spaced_plus>;
         };
-
         spaced_asterisk: spaced_asterisk {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -159,7 +170,6 @@
             tapping-term-ms = <200>;
             bindings = <&kp ASTERISK>, <&spaced_asterisk>;
         };
-
         spaced_slash: spaced_slash {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -171,7 +181,6 @@
             tapping-term-ms = <200>;
             bindings = <&kp SLASH>, <&spaced_slash>;
         };
-
         dt_equal_spaced_equal: dt_equal_spaced_equal {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -264,6 +273,23 @@
         #binding-cells = <0>;
         bindings = <&kp BACKSLASH>, <&kp ASTERISK>;
         mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+
+    combos {
+        compatible = "zmk,combos";
+
+        combo_shutdown {
+            timeout-ms = <50>;
+            key-positions = <10 11>;  // A + S positions
+            bindings = <&shutdown_win>;
+            layers = <3>;
+        };
+        combo_restart {
+            timeout-ms = <50>;
+            key-positions = <10 3>;   // A + R positions  
+            bindings = <&restart_win>;
+            layers = <3>;
+        };
     };
 
     conditional_layers {
