@@ -51,6 +51,31 @@
             bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>;
             ignored-key-positions = <3>;
         };
+        win_1: swapper {
+            compatible = "zmk,behavior-tri-state";
+            #binding-cells = <0>;
+            bindings = <&kt LWIN>, <&kp N1>, <&kt LWIN>;
+        };
+        win_2: swapper {
+            compatible = "zmk,behavior-tri-state";
+            #binding-cells = <0>;
+            bindings = <&kt LWIN>, <&kp N2>, <&kt LWIN>;
+        };
+        win_3: swapper {
+            compatible = "zmk,behavior-tri-state";
+            #binding-cells = <0>;
+            bindings = <&kt LWIN>, <&kp N3>, <&kt LWIN>;
+        };
+        win_4: swapper {
+            compatible = "zmk,behavior-tri-state";
+            #binding-cells = <0>;
+            bindings = <&kt LWIN>, <&kp N4>, <&kt LWIN>;
+        };
+        win_5: swapper {
+            compatible = "zmk,behavior-tri-state";
+            #binding-cells = <0>;
+            bindings = <&kt LWIN>, <&kp N5>, <&kt LWIN>;
+        };
         dt_esc_alt_f4: double_tap_esc_alt_f4 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -255,46 +280,46 @@
 
         base {
             bindings = <
-&kp Q         &kp W       &kp E                  &kp R         &kp T              &kp Y         &kp U         &kp I                   &kp O        &kp P
-&htl LWIN A  &htl LALT S  &htl LC(LEFT_SHIFT) D  &htl LCTRL F  &kp G              &kp H         &htr RCTRL J  &htr RC(RIGHT_SHIFT) K  &htr RALT L  &htr K_APPLICATION APOSTROPHE
-&kp Z         &kp X       &kp C                  &kp V         &kp B              &kp N         &kp M         &comma_semicol          &dot_colon   &excl_qmark
-                                                 &sk LSHIFT    &lt 1 BACKSPACE    &lt 2 SPACE   &lt 3 ENTER
+&kp Q        &kp W        &kp E                  &kp R         &kp T                  &kp Y         &kp U         &kp I                   &kp O        &kp P
+&htl LWIN A  &htl LALT S  &htl LC(LEFT_SHIFT) D  &htl LCTRL F  &kp G                  &kp H         &htr RCTRL J  &htr RC(RIGHT_SHIFT) K  &htr RALT L  &htr K_APPLICATION APOSTROPHE
+&kp Z        &kp X        &kp C                  &kp V         &kp B                  &kp N         &kp M         &comma_semicol          &dot_colon   &excl_qmark
+                                                 &sk LSHIFT    &lt 1 BACKSPACE        &lt 2 SPACE   &lt 3 ENTER
             >;
         };
 
         nav-sym {
             bindings = <
-&dt_esc_alt_f4  &kp LC(W)        &alt_tab     &kp LS(TAB)        &kp LC(T)           &dt_assign_pipe       &dt_equal_ops       &hash_dollar  &kp LC(LS(C))  &underscore_cmd
-&kp TAB         &kp LS(LC(TAB))  &kp LC(TAB)  &kp LC(BACKSPACE)  &kp DELETE          &paren_open_closed    &amp_percent        &at_caret     &kp GRAVE      &backslash_astrk
-&kp LC(Z)       &kp LC(X)        &kp LC(C)    &kp LC(V)          &kp LC(Y)           &bracket_open_closed  &brace_open_closed  &lt_lte       &gt_gte        &slash_pipe
-                                              &trans             &trans              &trans                &trans
+&dt_esc_alt_f4  &kp LC(W)        &alt_tab     &kp LS(TAB)        &kp LC(T)         &dt_assign_pipe       &dt_equal_ops       &hash_dollar  &kp LC(LS(C))  &underscore_cmd
+&kp TAB         &kp LS(LC(TAB))  &kp LC(TAB)  &kp LC(BACKSPACE)  &kp DELETE        &paren_open_closed    &amp_percent        &at_caret     &kp GRAVE      &backslash_astrk
+&kp LC(Z)       &kp LC(X)        &kp LC(C)    &kp LC(V)          &kp LC(Y)         &bracket_open_closed  &brace_open_closed  &lt_lte       &gt_gte        &slash_pipe
+                                              &trans             &trans            &trans                &trans
             >;
         };
 
         fn-num {
             bindings = <
-&kp F1     &kp F2      &kp F3      &kp F4   &kp F5     &dt_plus_spaced_plus    &kp N7  &kp N8  &kp N9  &dt_minus_spaced_minus
-&kp F6     &kp F7      &kp F8      &kp F9   &kp F10    &dt_equal_spaced_equal  &kp N4  &kp N5  &kp N6  &dt_asterisk_spaced_asterisk
-&kp LG(N1) &kp LG(N2)  &kp LG(N3)  &kp F11  &kp F12    &kp DOT                 &kp N1  &kp N2  &kp N3  &dt_slash_spaced_slash
-                                   &trans   &trans     &trans                  &kp N0
+&kp F1  &kp F2  &kp F3  &kp F4   &kp F5         &dt_plus_spaced_plus    &kp N7  &kp N8  &kp N9  &dt_minus_spaced_minus
+&kp F6  &kp F7  &kp F8  &kp F9   &kp F10        &dt_equal_spaced_equal  &kp N4  &kp N5  &kp N6  &dt_asterisk_spaced_asterisk
+&trans  &trans  &trans  &kp F11  &kp F12        &kp DOT                 &kp N1  &kp N2  &kp N3  &dt_slash_spaced_slash
+                        &trans   &trans         &trans                  &kp N0
             >;
         };
 
-        sym-nav {
+        nav-nav {
             bindings = <
-&trans      &trans      &trans      &trans      &trans        &kp LC(HOME)  &kp HOME      &kp UP      &kp END        &kp PG_UP
-&trans      &trans      &trans      &trans      &trans        &kp LC(END)   &kp LEFT      &kp DOWN    &kp RIGHT      &kp PG_DN
-&kp LG(N1)  &kp LG(N2)  &kp LG(N3)  &kp LG(N4)  &kp LG(N5)    &trans        &kp LC(LEFT)  &kp LC(UP)  &kp LC(RIGHT)  &kp LC(DOWN_ARROW)
-                                    &trans      &trans        &trans        &trans
+&trans  &trans  &trans  &trans  &trans        &kp LC(HOME)  &kp HOME      &kp UP      &kp END        &kp PG_UP
+&trans  &trans  &trans  &trans  &trans        &kp LC(END)   &kp LEFT      &kp DOWN    &kp RIGHT      &kp PG_DN
+&win_1  &win_2  &win_3  &win_4  &win_5        &trans        &kp LC(LEFT)  &kp LC(UP)  &kp LC(RIGHT)  &kp LC(DOWN_ARROW)
+                        &trans  &trans        &trans        &trans
             >;
         };
 
         sys {
             bindings = <
-&bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_CLR      &kp C_VOL_UP  &kp C_PREVIOUS  &kp C_PLAY_PAUSE  &kp C_NEXT  &kp C_BRIGHTNESS_INC
-&bt BT_DISC 0  &bt BT_DISC 1  &bt BT_DISC 2  &bt BT_DISC 3  &out OUT_BLE    &kp C_VOL_DN  &trans          &trans            &trans      &kp C_BRIGHTNESS_DEC
-&soft_off      &sys_reset     &bootloader    &trans         &out OUT_USB    &kp C_MUTE    &trans          &bootloader       &sys_reset  &soft_off
-                                             &trans         &trans          &trans        &trans
+&bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_CLR          &kp C_VOL_UP  &kp C_PREVIOUS  &kp C_PLAY_PAUSE  &kp C_NEXT  &kp C_BRIGHTNESS_INC
+&bt BT_DISC 0  &bt BT_DISC 1  &bt BT_DISC 2  &bt BT_DISC 3  &out OUT_BLE        &kp C_VOL_DN  &trans          &trans            &trans      &kp C_BRIGHTNESS_DEC
+&soft_off      &sys_reset     &bootloader    &trans         &out OUT_USB        &kp C_MUTE    &trans          &bootloader       &sys_reset  &soft_off
+                                             &trans         &trans              &trans        &trans
             >;
         };
     };
