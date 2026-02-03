@@ -45,9 +45,8 @@
             hold-trigger-key-positions = <KEYS_L THUMBS>;
             hold-trigger-on-release;
         };
-        swap: swapper {
+        alt_tab: swapper {
             compatible = "zmk,behavior-tri-state";
-            label = "SWAPPER";
             #binding-cells = <0>;
             bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>;
             ignored-key-positions = <3>;
@@ -110,6 +109,49 @@
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&kp MINUS>, <&spaced_minus>;
+        };
+
+        spaced_plus: spaced_plus {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp SPACE &kp PLUS &kp SPACE>;
+        };
+        dt_plus_spaced_plus: dt_plus_spaced_plus {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp PLUS>, <&spaced_plus>;
+        };
+
+        spaced_asterisk: spaced_asterisk {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp SPACE &kp ASTERISK &kp SPACE>;
+        };
+        dt_asterisk_spaced_asterisk: dt_asterisk_spaced_asterisk {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp ASTERISK>, <&spaced_asterisk>;
+        };
+
+        spaced_slash: spaced_slash {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp SPACE &kp SLASH &kp SPACE>;
+        };
+        dt_slash_spaced_slash: dt_slash_spaced_slash {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp SLASH>, <&spaced_slash>;
+        };
+
+        dt_equal_spaced_equal: dt_equal_spaced_equal {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp EQUAL>, <&spaced_equal>;
         };
     };
 
@@ -222,7 +264,7 @@
 
         nav-sym {
             bindings = <
-&dt_esc_alt_f4  &kp LC(W)        &swap        &kp LS(TAB)        &kp LC(T)           &dt_assign_pipe       &dt_equal_ops       &hash_dollar  &kp LC(LS(C))  &underscore_cmd
+&dt_esc_alt_f4  &kp LC(W)        &alt_tab     &kp LS(TAB)        &kp LC(T)           &dt_assign_pipe       &dt_equal_ops       &hash_dollar  &kp LC(LS(C))  &underscore_cmd
 &kp TAB         &kp LS(LC(TAB))  &kp LC(TAB)  &kp LC(BACKSPACE)  &kp DELETE          &paren_open_closed    &amp_percent        &at_caret     &kp GRAVE      &backslash_astrk
 &kp LC(Z)       &kp LC(X)        &kp LC(C)    &kp LC(V)          &kp LC(Y)           &bracket_open_closed  &brace_open_closed  &lt_lte       &gt_gte        &slash_pipe
                                               &trans             &trans              &trans                &trans
@@ -231,19 +273,19 @@
 
         fn-num {
             bindings = <
-&kp F1  &kp F2  &kp F3  &kp F4   &kp F5     &kp PLUS   &kp N7  &kp N8  &kp N9  &dt_minus_spaced_minus
-&kp F6  &kp F7  &kp F8  &kp F9   &kp F10    &kp EQUAL  &kp N4  &kp N5  &kp N6  &kp ASTERISK
-&trans  &trans  &trans  &kp F11  &kp F12    &kp DOT    &kp N1  &kp N2  &kp N3  &kp SLASH
-                        &trans   &trans     &trans     &kp N0
+&kp F1     &kp F2      &kp F3      &kp F4   &kp F5     &dt_plus_spaced_plus    &kp N7  &kp N8  &kp N9  &dt_minus_spaced_minus
+&kp F6     &kp F7      &kp F8      &kp F9   &kp F10    &dt_equal_spaced_equal  &kp N4  &kp N5  &kp N6  &dt_asterisk_spaced_asterisk
+&kp LG(N1) &kp LG(N2)  &kp LG(N3)  &kp F11  &kp F12    &kp DOT                 &kp N1  &kp N2  &kp N3  &dt_slash_spaced_slash
+                                   &trans   &trans     &trans                  &kp N0
             >;
         };
 
         sym-nav {
             bindings = <
-&kp GRAVE    &kp EXCLAMATION  &kp AT_SIGN    &kp HASH        &kp DOLLAR       &kp LC(HOME)  &kp HOME      &kp UP      &kp END        &kp PG_UP
-&kp PERCENT  &kp CARET        &kp AMPERSAND  &kp UNDERSCORE  &kp PIPE         &kp LC(END)   &kp LEFT      &kp DOWN    &kp RIGHT      &kp PG_DN
-&trans       &trans           &trans         &trans          &kp BACKSLASH    &trans        &kp LC(LEFT)  &kp LC(UP)  &kp LC(RIGHT)  &kp LC(DOWN_ARROW)
-                                             &trans          &trans           &trans        &trans
+&trans      &trans      &trans      &trans      &trans        &kp LC(HOME)  &kp HOME      &kp UP      &kp END        &kp PG_UP
+&trans      &trans      &trans      &trans      &trans        &kp LC(END)   &kp LEFT      &kp DOWN    &kp RIGHT      &kp PG_DN
+&kp LG(N1)  &kp LG(N2)  &kp LG(N3)  &kp LG(N4)  &kp LG(N5)    &trans        &kp LC(LEFT)  &kp LC(UP)  &kp LC(RIGHT)  &kp LC(DOWN_ARROW)
+                                    &trans      &trans        &trans        &trans
             >;
         };
 
