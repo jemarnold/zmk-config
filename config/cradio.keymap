@@ -45,33 +45,33 @@
             hold-trigger-key-positions = <KEYS_L THUMBS>;
             hold-trigger-on-release;
         };
-        alt_tab: swapper {
+        alt_tab: swapper_alt_tab {
             compatible = "zmk,behavior-tri-state";
             #binding-cells = <0>;
             bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>;
             ignored-key-positions = <3>;
         };
-        win_1: swapper {
+        win_1: swapper_win_1 {
             compatible = "zmk,behavior-tri-state";
             #binding-cells = <0>;
             bindings = <&kt LWIN>, <&kp N1>, <&kt LWIN>;
         };
-        win_2: swapper {
+        win_2: swapper_win_2 {
             compatible = "zmk,behavior-tri-state";
             #binding-cells = <0>;
             bindings = <&kt LWIN>, <&kp N2>, <&kt LWIN>;
         };
-        win_3: swapper {
+        win_3: swapper_win_3 {
             compatible = "zmk,behavior-tri-state";
             #binding-cells = <0>;
             bindings = <&kt LWIN>, <&kp N3>, <&kt LWIN>;
         };
-        win_4: swapper {
+        win_4: swapper_win_4 {
             compatible = "zmk,behavior-tri-state";
             #binding-cells = <0>;
             bindings = <&kt LWIN>, <&kp N4>, <&kt LWIN>;
         };
-        win_5: swapper {
+        win_5: swapper_win_5 {
             compatible = "zmk,behavior-tri-state";
             #binding-cells = <0>;
             bindings = <&kt LWIN>, <&kp N5>, <&kt LWIN>;
