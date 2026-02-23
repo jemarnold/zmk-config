@@ -24,6 +24,14 @@
             quick-tap-ms = <175>;
             bindings = <&mo>, <&kp>;
         };
+        slt: space_layer_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <250>;
+            quick-tap-ms = <175>;
+            bindings = <&mo>, <&kp>;
+        };
         htl: left_hand_hold_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -310,7 +318,7 @@
 &kp Q        &kp W        &kp E                  &kp R         &kp T                  &kp Y         &kp U         &kp I                   &kp O        &kp P
 &htl LWIN A  &htl LALT S  &htl LC(LEFT_SHIFT) D  &htl LCTRL F  &kp G                  &kp H         &htr RCTRL J  &htr RC(RIGHT_SHIFT) K  &htr RALT L  &htr K_APPLICATION APOSTROPHE
 &kp Z        &kp X        &kp C                  &kp V         &kp B                  &kp N         &kp M         &comma_semicol          &dot_colon   &excl_qmark
-                                                 &kp LSHIFT    &lt 1 BACKSPACE        &lt 2 SPACE   &lt 3 ENTER
+                                                 &kp LSHIFT    &lt 1 BACKSPACE        &slt 2 SPACE   &lt 3 ENTER
             >;
         };
 
