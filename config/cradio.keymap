@@ -161,6 +161,21 @@
             #binding-cells = <0>;
             bindings = <&kp SPACE &kp SLASH &kp SPACE>;
         };
+        safe_minus: safe_minus {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_release &kp LSHIFT &kp RSHIFT &macro_tap &kp MINUS>;
+        };
+        safe_equal: safe_equal {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_release &kp LSHIFT &kp RSHIFT &macro_tap &kp EQUAL>;
+        };
+        safe_slash: safe_slash {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_release &kp LSHIFT &kp RSHIFT &macro_tap &kp SLASH>;
+        };
     };
 
 // modified shift keys
@@ -261,7 +276,7 @@
     minus_spaced_minus: minus_spaced_minus {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
-        bindings = <&kp MINUS>, <&spaced_minus>;
+        bindings = <&safe_minus>, <&spaced_minus>;
         mods = <(MOD_LSFT|MOD_RSFT)>;
     };
     asterisk_spaced_asterisk: asterisk_spaced_asterisk {
@@ -273,13 +288,13 @@
     slash_spaced_slash: slash_spaced_slash {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
-        bindings = <&kp SLASH>, <&spaced_slash>;
+        bindings = <&safe_slash>, <&spaced_slash>;
         mods = <(MOD_LSFT|MOD_RSFT)>;
     };
     equal_spaced_equal: equal_spaced_equal {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
-        bindings = <&kp EQUAL>, <&spaced_equal>;
+        bindings = <&safe_equal>, <&spaced_equal>;
         mods = <(MOD_LSFT|MOD_RSFT)>;
     };
 
