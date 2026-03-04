@@ -49,6 +49,7 @@
         };
 
 // Win navigation hotkeys
+
         alt_tab: swapper_alt_tab {
             compatible = "zmk,behavior-tri-state";
             #binding-cells = <0>;
@@ -102,6 +103,7 @@
         };
 
 // spaced symbols & tap dances
+
         spaced_equal: spaced_equal {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -144,54 +146,25 @@
             #binding-cells = <0>;
             bindings = <&kp SPACE &kp MINUS &kp SPACE>;
         };
-        dt_minus_spaced_minus: dt_minus_spaced_minus {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp MINUS>, <&spaced_minus>;
-        };
         spaced_plus: spaced_plus {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp SPACE &kp PLUS &kp SPACE>;
-        };
-        dt_plus_spaced_plus: dt_plus_spaced_plus {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp PLUS>, <&spaced_plus>;
         };
         spaced_asterisk: spaced_asterisk {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp SPACE &kp ASTERISK &kp SPACE>;
         };
-        dt_asterisk_spaced_asterisk: dt_asterisk_spaced_asterisk {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp ASTERISK>, <&spaced_asterisk>;
-        };
         spaced_slash: spaced_slash {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp SPACE &kp SLASH &kp SPACE>;
         };
-        dt_slash_spaced_slash: dt_slash_spaced_slash {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp SLASH>, <&spaced_slash>;
-        };
-        dt_equal_spaced_equal: dt_equal_spaced_equal {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp EQUAL>, <&spaced_equal>;
-        };
     };
 
 // modified shift keys
+
     comma_semicol: comma_semicolon {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
@@ -275,7 +248,41 @@
         #binding-cells = <0>;
         bindings = <&kp BACKSLASH>, <&kp ASTERISK>;
         mods = <(MOD_LSFT|MOD_RSFT)>;
+    }
+
+// fn-num spaced symbol mod-morphs (tap = symbol, shift = spaced)
+
+    plus_spaced_plus: plus_spaced_plus {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&kp PLUS>, <&spaced_plus>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
     };
+    minus_spaced_minus: minus_spaced_minus {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&kp MINUS>, <&spaced_minus>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    asterisk_spaced_asterisk: asterisk_spaced_asterisk {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&kp ASTERISK>, <&spaced_asterisk>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    slash_spaced_slash: slash_spaced_slash {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&kp SLASH>, <&spaced_slash>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    equal_spaced_equal: equal_spaced_equal {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&kp EQUAL>, <&spaced_equal>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+
 
     combos {
         compatible = "zmk,combos";
@@ -326,10 +333,10 @@
 
         fn-num {
             bindings = <
-&kp F1  &kp F2  &kp F3  &kp F4   &kp F5         &dt_plus_spaced_plus    &kp N7  &kp N8  &kp N9  &dt_minus_spaced_minus
-&kp F6  &kp F7  &kp F8  &kp F9   &kp F10        &dt_equal_spaced_equal  &kp N4  &kp N5  &kp N6  &dt_asterisk_spaced_asterisk
-&trans  &trans  &trans  &kp F11  &kp F12        &kp DOT                 &kp N1  &kp N2  &kp N3  &dt_slash_spaced_slash
-                        &trans   &trans         &trans                  &kp N0
+&kp F1  &kp F2  &kp F3  &kp F4   &kp F5         &plus_spaced_plus     &kp N7  &kp N8  &kp N9  &minus_spaced_minus
+&kp F6  &kp F7  &kp F8  &kp F9   &kp F10        &equal_spaced_equal   &kp N4  &kp N5  &kp N6  &asterisk_spaced_asterisk
+&trans  &trans  &trans  &kp F11  &kp F12        &kp DOT               &kp N1  &kp N2  &kp N3  &slash_spaced_slash
+                        &trans   &trans         &trans                &kp N0
             >;
         };
 
