@@ -248,7 +248,7 @@
         #binding-cells = <0>;
         bindings = <&kp BACKSLASH>, <&kp ASTERISK>;
         mods = <(MOD_LSFT|MOD_RSFT)>;
-    }
+    };
 
 // fn-num spaced symbol mod-morphs (tap = symbol, shift = spaced)
 
