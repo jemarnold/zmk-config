@@ -101,10 +101,10 @@
             #binding-cells = <0>;
             bindings = <&kt LWIN>, <&kp N9>, <&kt LWIN>;
         };
-        win_10: swapper_win_10 {
+        win_0: swapper_win_0 {
             compatible = "zmk,behavior-tri-state";
             #binding-cells = <0>;
-            bindings = <&kt LWIN>, <&kp N10>, <&kt LWIN>;
+            bindings = <&kt LWIN>, <&kp N0>, <&kt LWIN>;
         };
         dt_esc_alt_f4: double_tap_esc_alt_f4 {
             compatible = "zmk,behavior-tap-dance";
@@ -355,7 +355,7 @@
         nav-nav {
             bindings = <
 &trans  &trans  &trans  &trans  &trans        &kp LC(HOME)  &kp HOME      &kp UP      &kp END        &kp PG_UP
-&win_6  &win_7  &win_8  &win_9  &win_10       &kp LC(END)   &kp LEFT      &kp DOWN    &kp RIGHT      &kp PG_DN
+&win_6  &win_7  &win_8  &win_9  &win_0        &kp LC(END)   &kp LEFT      &kp DOWN    &kp RIGHT      &kp PG_DN
 &win_1  &win_2  &win_3  &win_4  &win_5        &trans        &kp LC(LEFT)  &kp LC(UP)  &kp LC(RIGHT)  &kp LC(DOWN_ARROW)
                         &trans  &trans        &trans        &trans
             >;
