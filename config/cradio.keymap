@@ -81,6 +81,31 @@
             #binding-cells = <0>;
             bindings = <&kt LWIN>, <&kp N5>, <&kt LWIN>;
         };
+        win_6: swapper_win_6 {
+            compatible = "zmk,behavior-tri-state";
+            #binding-cells = <0>;
+            bindings = <&kt LWIN>, <&kp N6>, <&kt LWIN>;
+        };
+        win_7: swapper_win_7 {
+            compatible = "zmk,behavior-tri-state";
+            #binding-cells = <0>;
+            bindings = <&kt LWIN>, <&kp N7>, <&kt LWIN>;
+        };
+        win_8: swapper_win_8 {
+            compatible = "zmk,behavior-tri-state";
+            #binding-cells = <0>;
+            bindings = <&kt LWIN>, <&kp N8>, <&kt LWIN>;
+        };
+        win_9: swapper_win_9 {
+            compatible = "zmk,behavior-tri-state";
+            #binding-cells = <0>;
+            bindings = <&kt LWIN>, <&kp N9>, <&kt LWIN>;
+        };
+        win_10: swapper_win_10 {
+            compatible = "zmk,behavior-tri-state";
+            #binding-cells = <0>;
+            bindings = <&kt LWIN>, <&kp N10>, <&kt LWIN>;
+        };
         dt_esc_alt_f4: double_tap_esc_alt_f4 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -160,21 +185,6 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp SPACE &kp SLASH &kp SPACE>;
-        };
-        safe_minus: safe_minus {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_release &kp LSHIFT &kp RSHIFT &macro_tap &kp MINUS>;
-        };
-        safe_equal: safe_equal {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_release &kp LSHIFT &kp RSHIFT &macro_tap &kp EQUAL>;
-        };
-        safe_slash: safe_slash {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_release &kp LSHIFT &kp RSHIFT &macro_tap &kp SLASH>;
         };
     };
 
@@ -276,7 +286,7 @@
     minus_spaced_minus: minus_spaced_minus {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
-        bindings = <&safe_minus>, <&spaced_minus>;
+        bindings = <&kp MINUS>, <&spaced_minus>;
         mods = <(MOD_LSFT|MOD_RSFT)>;
     };
     asterisk_spaced_asterisk: asterisk_spaced_asterisk {
@@ -288,32 +298,19 @@
     slash_spaced_slash: slash_spaced_slash {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
-        bindings = <&safe_slash>, <&spaced_slash>;
+        bindings = <&kp SLASH>, <&spaced_slash>;
         mods = <(MOD_LSFT|MOD_RSFT)>;
     };
     equal_spaced_equal: equal_spaced_equal {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
-        bindings = <&safe_equal>, <&spaced_equal>;
+        bindings = <&kp EQUAL>, <&spaced_equal>;
         mods = <(MOD_LSFT|MOD_RSFT)>;
     };
 
 
     combos {
         compatible = "zmk,combos";
-
-        combo_shutdown {
-            timeout-ms = <50>;
-            key-positions = <10 11>;  // A + S positions
-            bindings = <&shutdown_win>;
-            layers = <3>;
-        };
-        combo_restart {
-            timeout-ms = <50>;
-            key-positions = <10 3>;   // A + R positions  
-            bindings = <&restart_win>;
-            layers = <3>;
-        };
     };
 
     conditional_layers {
@@ -358,7 +355,7 @@
         nav-nav {
             bindings = <
 &trans  &trans  &trans  &trans  &trans        &kp LC(HOME)  &kp HOME      &kp UP      &kp END        &kp PG_UP
-&trans  &trans  &trans  &trans  &trans        &kp LC(END)   &kp LEFT      &kp DOWN    &kp RIGHT      &kp PG_DN
+&win_6  &win_7  &win_8  &win_9  &win_10       &kp LC(END)   &kp LEFT      &kp DOWN    &kp RIGHT      &kp PG_DN
 &win_1  &win_2  &win_3  &win_4  &win_5        &trans        &kp LC(LEFT)  &kp LC(UP)  &kp LC(RIGHT)  &kp LC(DOWN_ARROW)
                         &trans  &trans        &trans        &trans
             >;
@@ -368,7 +365,7 @@
             bindings = <
 &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_CLR          &kp C_VOL_UP  &kp C_PREVIOUS  &kp C_PLAY_PAUSE  &kp C_NEXT  &kp C_BRIGHTNESS_INC
 &bt BT_DISC 0  &bt BT_DISC 1  &bt BT_DISC 2  &bt BT_DISC 3  &out OUT_BLE        &kp C_VOL_DN  &trans          &trans            &trans      &kp C_BRIGHTNESS_DEC
-&soft_off      &sys_reset     &bootloader    &trans         &out OUT_USB        &kp C_MUTE    &trans          &bootloader       &sys_reset  &soft_off
+&shutdown_win  &sys_reset     &bootloader    &trans         &out OUT_USB        &kp C_MUTE    &trans          &bootloader       &sys_reset  &restart_win
                                              &trans         &trans              &trans        &trans
             >;
         };
