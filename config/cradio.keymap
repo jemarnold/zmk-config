@@ -127,7 +127,7 @@
             bindings = <&kp LG(X)>, <&macro_wait_time 300>, <&kp U>, <&kp R>;
         };
 
-// spaced symbols & tap dances
+// spaced symbols, macros, & tap dances
 
         spaced_equal: spaced_equal {
             compatible = "zmk,behavior-macro";
@@ -160,13 +160,22 @@
             #binding-cells = <0>;
             bindings = <&kp SPACE &kp LESS_THAN &kp EQUAL &kp SPACE>;
         };
-        dt_assign_pipe: double_tap_assign_pipe {
-            compatible = "zmk,behavior-tap-dance";
+        r_assign: r_assign {
+            compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
-// R-specific: bindings = <&kp RA(MINUS)>, <&kp LC(LS(M))>;
-            bindings = <&kp SPACE &kp LESS_THAN &kp MINUS &kp SPACE>, <&kp SPACE &kp PIPE &kp GREATER_THAN &kp SPACE>;
+            bindings = <&kp SPACE &kp LESS_THAN &kp MINUS &kp SPACE>;
         };
+        r_pipe: r_pipe {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp SPACE &kp PIPE &kp GREATER_THAN &kp SPACE>;
+        };
+//        dt_assign_pipe: double_tap_assign_pipe {
+//            compatible = "zmk,behavior-tap-dance";
+//            #binding-cells = <0>;
+//            tapping-term-ms = <200>;
+//            bindings = <&kp RA(MINUS)>, <&kp LC(LS(M))>;
+//        };
         spaced_minus: spaced_minus {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -191,6 +200,12 @@
 
 // modified shift keys
 
+    r_assign_pipe: r_assign_pipe {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&r_assign>, <&r_pipe>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
     comma_semicol: comma_semicolon {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
