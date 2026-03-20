@@ -109,22 +109,22 @@
         dt_esc_alt_f4: double_tap_esc_alt_f4 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <150>;
             bindings = <&kp ESCAPE>, <&kp LA(F4)>;
         };
         shutdown_win: shutdown_windows {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <100>;
-            tap-ms = <100>;
-            bindings = <&kp LG(X)>, <&kp U>, <&kp U>;
+            wait-ms = <50>;
+            tap-ms = <50>;
+            bindings = <&kp LG(X)>, <&macro_wait_time 300>, <&kp U>, <&kp U>;
         };
         restart_win: restart_windows {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <100>;
-            tap-ms = <100>;
-            bindings = <&kp LG(X)>, <&kp U>, <&kp R>;
+            wait-ms = <50>;
+            tap-ms = <50>;
+            bindings = <&kp LG(X)>, <&macro_wait_time 300>, <&kp U>, <&kp R>;
         };
 
 // spaced symbols & tap dances
@@ -153,18 +153,19 @@
         gte: greater_than_equal_to {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp GREATER_THAN &kp EQUAL>;
+            bindings = <&kp SPACE &kp GREATER_THAN &kp EQUAL &kp SPACE>;
         };
         lte: less_than_equal_to {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LESS_THAN &kp EQUAL>;
+            bindings = <&kp SPACE &kp LESS_THAN &kp EQUAL &kp SPACE>;
         };
         dt_assign_pipe: double_tap_assign_pipe {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp RA(MINUS)>, <&kp LC(LS(M))>;
+// R-specific: bindings = <&kp RA(MINUS)>, <&kp LC(LS(M))>;
+            bindings = <&kp SPACE &kp LESS_THAN &kp MINUS &kp SPACE>, <&kp SPACE &kp PIPE &kp GREATER_THAN &kp SPACE>;
         };
         spaced_minus: spaced_minus {
             compatible = "zmk,behavior-macro";
