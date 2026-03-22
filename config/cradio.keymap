@@ -115,14 +115,14 @@
         shutdown_win: shutdown_windows {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <50>;
+            wait-ms = <100>;
             tap-ms = <50>;
             bindings = <&kp LG(X)>, <&macro_wait_time 300>, <&kp U>, <&kp U>;
         };
         restart_win: restart_windows {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <50>;
+            wait-ms = <100>;
             tap-ms = <50>;
             bindings = <&kp LG(X)>, <&macro_wait_time 300>, <&kp U>, <&kp R>;
         };
