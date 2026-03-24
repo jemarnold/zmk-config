@@ -115,16 +115,16 @@
         shutdown_win: shutdown_windows {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <100>;
+            wait-ms = <50>;
             tap-ms = <50>;
-            bindings = <&kp LG(X)>, <&macro_wait_time 300>, <&kp U>, <&kp U>;
+            bindings = <&kp LG(X)>, <&macro_wait_time 400>, <&kp U>, <&kp U>;
         };
         restart_win: restart_windows {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <100>;
+            wait-ms = <50>;
             tap-ms = <50>;
-            bindings = <&kp LG(X)>, <&macro_wait_time 300>, <&kp U>, <&kp R>;
+            bindings = <&kp LG(X)>, <&macro_wait_time 400>, <&kp U>, <&kp R>;
         };
 
 // spaced symbols, macros, & tap dances
@@ -153,12 +153,12 @@
         gte: greater_than_equal_to {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp SPACE &kp GREATER_THAN &kp EQUAL &kp SPACE>;
+            bindings = <&kp GREATER_THAN &kp EQUAL>;
         };
         lte: less_than_equal_to {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp SPACE &kp LESS_THAN &kp EQUAL &kp SPACE>;
+            bindings = <&kp LESS_THAN &kp EQUAL &kp SPACE>;
         };
         r_assign: r_assign {
             compatible = "zmk,behavior-macro";
