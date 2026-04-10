@@ -117,14 +117,14 @@
             #binding-cells = <0>;
             wait-ms = <50>;
             tap-ms = <50>;
-            bindings = <&kp LG(X)>, <&macro_wait_time 400>, <&kp U>, <&kp U>;
+            bindings = <&kp LG(X)>, <&macro_wait_time 300>, <&kp LG(X)>, <&kp U>, <&kp U>;
         };
         restart_win: restart_windows {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <50>;
             tap-ms = <50>;
-            bindings = <&kp LG(X)>, <&macro_wait_time 400>, <&kp U>, <&kp R>;
+            bindings = <&kp LG(X)>, <&macro_wait_time 300>, <&kp LG(X)>, <&kp U>, <&kp R>;
         };
 
 // spaced symbols, macros, & tap dances
