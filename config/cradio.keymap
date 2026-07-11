@@ -107,6 +107,24 @@
             tapping-term-ms = <200>;
             bindings = <&spaced_equal>, <&spaced_equality>, <&spaced_unequal>;
         };
+        dt_r_assign: double_tap_r_assign_right {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&r_assign_pipe>, <&r_assign_right>;
+        };
+        dt_lt_gt: double_tap_lt_gt_spaced_ops {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&lt_gt>, <&spaced_lte_gte>;
+        };
+        dt_in_null_or: double_tap_in_null_or {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&spaced_in>, <&spaced_null_or>;
+        };
         dt_minus: double_tap_minus_emdash {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -177,22 +195,41 @@
             #binding-cells = <0>;
             bindings = <&kp SPACE &kp LESS_THAN &kp MINUS &kp SPACE>;
         };
+        r_assign_right: r_assign_right {          /* " -> " */
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_release &kp LSHIFT &kp RSHIFT
+                        &macro_tap &kp SPACE &kp MINUS &kp GREATER_THAN &kp SPACE>;
+        };
         r_pipe: r_pipe {                          /* " |> " */
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp SPACE &kp PIPE &kp GREATER_THAN &kp SPACE>;
         };
+        spaced_in: spaced_in {                    /* " %in% " */
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_release &kp LSHIFT &kp RSHIFT
+                        &macro_tap &kp SPACE &kp PERCENT &kp I &kp N &kp PERCENT &kp SPACE>;
+        };
+        spaced_null_or: spaced_null_or {          /* " %||% " */
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp SPACE &kp PERCENT &kp PIPE &kp PIPE &kp PERCENT &kp SPACE>;
+        };
 
         /* Comparison operators */
-        gte: greater_than_equal_to {              /* ">=" */
+        spaced_lte: spaced_less_than_equal_to {   /* " <= " */
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp GREATER_THAN &kp EQUAL>;
+            bindings = <&macro_release &kp LSHIFT &kp RSHIFT
+                        &macro_tap &kp SPACE &kp LESS_THAN &kp EQUAL &kp SPACE>;
         };
-        lte: less_than_equal_to {                 /* "<= " */
+        spaced_gte: spaced_greater_than_equal_to { /* " >= " */
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LESS_THAN &kp EQUAL &kp SPACE>;
+            bindings = <&macro_release &kp LSHIFT &kp RSHIFT
+                        &macro_tap &kp SPACE &kp GREATER_THAN &kp EQUAL &kp SPACE>;
         };
         spaced_equality: spaced_equality {        /* " == " */
             compatible = "zmk,behavior-macro";
@@ -272,8 +309,8 @@
     MORPH(at_caret,             &kp AT_SIGN,          &kp CARET)
     MORPH(slash_pipe,           &kp SLASH,            &kp PIPE)
     MORPH(backslash_astrk,      &kp BACKSLASH,        &kp ASTERISK)
-    MORPH(lt_lte,               &kp LESS_THAN,        &lte)
-    MORPH(gt_gte,               &kp GREATER_THAN,     &gte)
+    MORPH(lt_gt,                &kp LESS_THAN,        &kp GREATER_THAN)
+    MORPH(spaced_lte_gte,       &spaced_lte,          &spaced_gte)
     MORPH(r_assign_pipe,        &r_assign,            &r_pipe)
     MORPH(underscore_cmd,       &kp UNDERSCORE,       &kp LC(LS(P)))
 
@@ -318,9 +355,9 @@
         NAV_SYM {
             label = "NAV_SYM";
             bindings = <
-&dt_esc_alt_f4  &kp LC(W)        &alt_tab     &kp LS(TAB)   &kp LC(T)        &r_assign_pipe        &dt_equal_ops       &hash_dollar  &kp LC(LS(C))  &underscore_cmd
-&kp TAB         &kp LS(LC(TAB))  &kp LC(TAB)  &kp LC(BSPC)  &kp DEL          &paren_open_closed    &amp_percent        &at_caret     &kp GRAVE      &backslash_astrk
-&kp LC(Z)       &kp LC(X)        &kp LC(C)    &kp LC(V)     &kp LC(Y)        &bracket_open_closed  &brace_open_closed  &lt_lte       &gt_gte        &slash_pipe
+&dt_esc_alt_f4  &kp LC(W)        &alt_tab     &kp LS(TAB)   &kp LC(T)        &dt_r_assign          &dt_equal_ops       &hash_dollar  &kp LC(LS(C))   &underscore_cmd
+&kp TAB         &kp LS(LC(TAB))  &kp LC(TAB)  &kp LC(BSPC)  &kp DEL          &paren_open_closed    &amp_percent        &at_caret     &kp GRAVE       &backslash_astrk
+&kp LC(Z)       &kp LC(X)        &kp LC(C)    &kp LC(V)     &kp LC(Y)        &bracket_open_closed  &brace_open_closed  &dt_lt_gt     &dt_in_null_or  &slash_pipe
                                               &trans        &trans           &trans                &trans
             >;
         };
