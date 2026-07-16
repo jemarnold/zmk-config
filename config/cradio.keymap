@@ -107,12 +107,6 @@
             tapping-term-ms = <200>;
             bindings = <&spaced_equal>, <&spaced_equality>, <&spaced_unequal>;
         };
-        dt_r_assign: double_tap_r_assign_right {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&r_assign_pipe>, <&r_assign_right>;
-        };
         dt_lt_gt: double_tap_lt_gt_spaced_ops {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -194,12 +188,6 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp SPACE &kp LESS_THAN &kp MINUS &kp SPACE>;
-        };
-        r_assign_right: r_assign_right {          /* " -> " */
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_release &kp LSHIFT &kp RSHIFT
-                        &macro_tap &kp SPACE &kp MINUS &kp GREATER_THAN &kp SPACE>;
         };
         r_pipe: r_pipe {                          /* " |> " */
             compatible = "zmk,behavior-macro";
@@ -355,7 +343,7 @@
         NAV_SYM {
             label = "NAV_SYM";
             bindings = <
-&dt_esc_alt_f4  &kp LC(W)        &alt_tab     &kp LS(TAB)   &kp LC(T)        &dt_r_assign          &dt_equal_ops       &hash_dollar  &kp LC(LS(C))   &underscore_cmd
+&dt_esc_alt_f4  &kp LC(W)        &alt_tab     &kp LS(TAB)   &kp LC(T)        &r_assign_pipe        &dt_equal_ops       &hash_dollar  &kp LC(LS(C))   &underscore_cmd
 &kp TAB         &kp LS(LC(TAB))  &kp LC(TAB)  &kp LC(BSPC)  &kp DEL          &paren_open_closed    &amp_percent        &at_caret     &kp GRAVE       &backslash_astrk
 &kp LC(Z)       &kp LC(X)        &kp LC(C)    &kp LC(V)     &kp LC(Y)        &bracket_open_closed  &brace_open_closed  &dt_lt_gt     &dt_in_null_or  &slash_pipe
                                               &trans        &trans           &trans                &trans
